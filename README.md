@@ -189,7 +189,7 @@ Food-Wastage-Reduction-Management-System/
 - **Food Donation Requests**
   <img src="https://github.com/AkashKrBanik/Food-Wastage-Reduction-Management-System/blob/main/Screenshots/donationRequests.png" alt="Login Form" width="1000">
 
-  **Smart AI Recipe Suggestions**
+- **Smart AI Recipe Suggestions**
   <img src="https://github.com/AkashKrBanik/Food-Wastage-Reduction-Management-System/blob/main/Screenshots/smartRecipe.png" alt="Login Form" width="1000">
 
 ---
