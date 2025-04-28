@@ -177,14 +177,20 @@ Food-Wastage-Reduction-Management-System/
 
 ## Screenshots 🖼️
 
+- **Create Account**
+  <img src="https://github.com/AkashKrBanik/Food-Wastage-Reduction-Management-System/blob/main/Screenshots/createAccount.png" alt="Login Form" width="1000">
+  
 - **Home Page**
-  ![Home Page](path/to/home-page-screenshot.png)
+  <img src="https://github.com/AkashKrBanik/Food-Wastage-Reduction-Management-System/blob/main/Screenshots/homepage.png" alt="Login Form" width="1000">
 
 - **Add Food Donation**
-  ![Add Food Donation](path/to/add-food-donation-screenshot.png)
+  <img src="https://github.com/AkashKrBanik/Food-Wastage-Reduction-Management-System/blob/main/Screenshots/addFoodDonation.png" alt="Login Form" width="1000">
 
-- **Smart Recipe Suggestions**
-  ![Smart Recipe Suggestions](path/to/smart-recipe-suggestions-screenshot.png)
+- **Food Donation Requests**
+  <img src="https://github.com/AkashKrBanik/Food-Wastage-Reduction-Management-System/blob/main/Screenshots/donationRequests.png" alt="Login Form" width="1000">
+
+  **Smart AI Recipe Suggestions**
+  <img src="https://github.com/AkashKrBanik/Food-Wastage-Reduction-Management-System/blob/main/Screenshots/smartRecipe.png" alt="Login Form" width="1000">
 
 ---
 
