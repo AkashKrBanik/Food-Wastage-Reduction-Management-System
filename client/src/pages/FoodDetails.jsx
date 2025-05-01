@@ -31,12 +31,19 @@ const FoodDetails = () => {
       return;
     }
     await axios.post(`${import.meta.env.VITE_DEV_URL}/food/requestDonation`, {
+      title: foodItem.title,
       userMail: localStorage.getItem("email"),
       donorMail: foodItem.donorMail,
       foodItemId: foodItem._id,
       requestedQuantity: foodItem.quantity,
       message: "I need this food for a community event"
-    });
+    }).then((res) => {
+      alert("Donation request sent successfully!");
+      navigate("/");
+    }).catch((err) => {
+      console.error(err);
+      alert("Failed to send donation request. Please try again.");
+    })
   };
 
   if (loading)
@@ -55,7 +62,7 @@ const FoodDetails = () => {
           {/* Image Section */}
           <div className="w-full md:w-1/2 flex justify-center">
             <img
-              src="/food.png"
+              src={foodItem.images}
               alt="Food Item"
               className="w-full max-w-md h-64 object-cover rounded-md shadow-lg"
             />
@@ -88,7 +95,7 @@ const FoodDetails = () => {
         <div className="mt-6 flex flex-col sm:flex-row gap-4">
           <button
             className="w-full sm:w-auto px-5 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/")}
           >
             Back to Home
           </button>

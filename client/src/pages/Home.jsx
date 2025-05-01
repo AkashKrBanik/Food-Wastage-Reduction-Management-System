@@ -24,17 +24,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-200">
-      {/* Hero Section */}
-      <header className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16 px-6 text-center">
-        <h1 className="text-4xl font-bold mb-4">Reduce Food Wastage</h1>
-        <p className="text-lg mb-6">
-          Join us in our mission to reduce food wastage by donating or claiming
-          surplus food.
-        </p>
-        <button className="px-6 py-3 bg-white text-blue-600 font-medium rounded-lg shadow-md hover:bg-gray-100 transition" onClick={() => window.location.href = "#food-items"}>
-          Get Started
-        </button>
-      </header>
 
       {/* Food Items Section */}
       <main className="py-12 px-6" id="food-items">
@@ -79,7 +68,7 @@ const FoodItem = ({ item }) => {
       {/* Food Image */}
       <div className="w-full h-40 bg-gray-700">
         <img
-          src="food.png"
+          src={item.images}
           alt={item.foodItem}
           className="w-full h-full object-cover"
         />

@@ -130,13 +130,7 @@ router.put("/notifications/:id", authenticateUser, async (req, res) => {
   }
 });
 
-// If using ES Modules: import { GoogleGenerativeAI } from "@google/generative-ai";
-//                     import express from 'express';
 
-// --- You would typically define your router elsewhere ---
-// const router = express.Router();
-
-// --- Your route handler ---
 router.post("/generate-content", async (req, res) => {
   // 1. Extract Ingredients from Request Body
   const { ingredients } = req.body;
@@ -161,13 +155,8 @@ router.post("/generate-content", async (req, res) => {
     // 4. Initialize Google Generative AI Client
     const genAI = new GoogleGenerativeAI(apiKey);
 
-    // 5. Select the Generative Model
-    // Note: 'gemini-2.5-pro-exp-03-25' might be experimental.
-    // Consider using stable aliases like 'gemini-1.5-pro-latest' or 'gemini-1.5-flash-latest'
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" }); // Using a standard alias here
-
-    // 6. Construct the Prompt
-    // This detailed prompt structure is good!
+    
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" }); 
     const prompt = `
       I have these leftover ingredients: ${trimmedIngredients}.
 
@@ -194,7 +183,6 @@ router.post("/generate-content", async (req, res) => {
 
     console.log(`Generating content for ingredients: ${trimmedIngredients}`);
 
-    // 7. Define Generation Configuration (optional, defaults exist)
     const generationConfig = {
       temperature: 0.7,        // Controls randomness (creativity vs. predictability)
       candidateCount: 1,       // Number of response candidates to generate
@@ -203,14 +191,12 @@ router.post("/generate-content", async (req, res) => {
       topK: 40                 // Top-K sampling parameter
     };
 
-    // 8. Call the API to Generate Content
     const result = await model.generateContent({
         contents: [{ role: "user", parts: [{ text: prompt }] }],
         generationConfig: generationConfig // Pass the config here
     });
 
-    // 9. Process the API Response
-    // Using optional chaining for safety in case the structure is unexpected
+
     const generatedText = result?.response?.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (!generatedText) {
@@ -220,10 +206,7 @@ router.post("/generate-content", async (req, res) => {
 
     console.log("Successfully generated content.");
     console.log(generatedText);
-    // console.log("Full API Response:", JSON.stringify(result, null, 2)); // Keep for detailed debugging if needed
 
-    // 10. Send Successful Response to Client
-    // Send the generated text within a consistent JSON structure
     res.status(200).json({ recipe: JSON.parse(generatedText) });
 
   } catch (error) {
@@ -235,8 +218,7 @@ router.post("/generate-content", async (req, res) => {
     // Send a generic error message to the client
     res.status(500).json({
         error: "Failed to generate content due to an internal server error.",
-        // Optionally include a non-sensitive detail if available and helpful
-        // details: error.message // Be cautious about exposing internal details
+
     });
   }
 });

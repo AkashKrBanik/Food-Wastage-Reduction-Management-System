@@ -6,11 +6,9 @@ const Request = require("../models/Request");
 const Notification = require("../models/Notif");
 const cloudinary = require('cloudinary').v2;
 const multer = require("multer");
-
+const fs = require("fs");
 const upload = multer({ dest: "uploads/" });
 const path = require("path");
-
-
 
 router.post("/requests", async (req, res) => {
   try {
@@ -28,15 +26,16 @@ router.post("/requests", async (req, res) => {
 
 router.post("/requestDonation", async (req, res) => {
   try {
-    const { userMail, donorMail, foodItemId, requestedQuantity, message } =
+    const {title, userMail, donorMail, foodItemId, requestedQuantity, message } =
       req.body;
 
-    if (!userMail || !foodItemId || !requestedQuantity || !donorMail) {
+    if (!title || !userMail || !foodItemId || !requestedQuantity || !donorMail) {
       console.log("error here ");
       return res.status(400).json({ error: "Missing required fields" });
     }
 
     const newRequest = new Request({
+      title,
       userMail,
       donorMail,
       foodItemId,

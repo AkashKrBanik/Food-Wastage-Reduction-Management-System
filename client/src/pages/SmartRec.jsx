@@ -33,7 +33,7 @@ const SmartRec = () => {
     return (
         <div className="min-h-screen bg-gray-900 text-gray-200">
             <h1 className="text-center text-3xl font-bold py-6 text-white">
-                Smart Recipe Suggestions
+                Smart AI Generated Recipe Suggestions
             </h1>
             <p className="text-center text-lg mb-6 text-gray-400">
                 Find recipes based on your ingredients!
